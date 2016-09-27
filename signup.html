@@ -1,0 +1,209 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<title>Signin/Signout</title>
+<style>
+
+.form-4 {
+    /* Size and position */
+    width: 300px;
+    margin: 60px auto 30px;
+    padding: 10px;
+    position: relative;
+
+    /* Font styles */
+    font-family: 'Raleway', 'Lato', Arial, sans-serif;
+    color: black;
+    text-shadow: 0 2px 1px rgba(0,0,0,0.3);
+}
+
+.form-4 h1 {
+    font-size: 22px;
+    padding-bottom: 20px;
+}
+.form-4 input[type=text],
+.form-4 input[type=email],
+.form-4 input[type=password],
+.form-4 input[type=number] {
+    /* Size and position */
+    width: 100%;
+    padding: 8px 4px 8px 10px;
+    margin-bottom: 15px;
+
+    /* Styles */
+    border: 1px solid black; /* Fallback */
+    border: 1px solid black;
+    background: rgba(0,0,0,0);
+    border-radius: 2px;
+    box-shadow: 
+        0 1px 0 rgba(255,255,255,0.2), 
+        inset 0 1px 1px rgba(0,0,0,0.1);
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+
+    /* Font styles */
+    font-family: 'Raleway', 'Lato', Arial, sans-serif;
+    color: black;
+    font-size: 13px;
+}
+.form-4 input::-webkit-input-placeholder {
+    color: grey;
+    text-shadow: 0 1px 0 rgba(255,255,255,0);
+}
+
+.form-4 input:-moz-placeholder {
+    color:grey;
+    text-shadow: 0 1px 0 rgba(255,255,255,0);
+}
+
+.form-4 input:-ms-input-placeholder {
+    color: grey;
+    text-shadow: 0 1px 0 rgba(255,255,255,0);
+}
+.form-4 input[type=text]:hover,
+.form-4 input[type=email]:hover,
+.form-4 input[type=password]:hover, 
+.form-4 input[type=number]:hover{
+    border-color: #333;
+}
+
+.form-4 input[type=text]:focus,
+.form-4 input[type=email]:focus,
+.form-4 input[type=password]:focus,
+.form-4 input[type=number]:focus,
+.form-4 input[type=submit]:focus {
+    box-shadow: 
+        0 1px 0 rgba(255,255,255,0.15), 
+        inset 0 1px 1px rgba(0,0,0,0.1),
+        0 0 0 3px rgba(255,255,255,0.15);
+    outline: none;
+}
+
+/* Fallback */
+.no-boxshadow .form-4 input[type=text]:focus,
+.no-boxshadow .form-4 input[type=email]:focus,
+.no-boxshadow .form-4 input[type=password]:focus,
+.no-boxshadow .form-4 input[type=number]:focus
+ {
+    outline: 1px solid white;
+}
+.form-4 input[type=submit] {
+    /* Size and position */
+    width: 100%;
+    padding: 8px 5px;
+    
+    /* Styles */
+    background: linear-gradient(rgba(99,64,86,0.5), rgba(76,49,65,0.7));    
+    border-radius: 5px;
+    border: 1px solid #4e3043;
+    box-shadow: 
+    	inset 0 1px rgba(255,255,255,0.4), 
+    	0 2px 1px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+
+    /* Font styles */
+    color: white;
+    text-shadow: 0 1px 0 rgba(0,0,0,0.3);
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Raleway', 'Lato', Arial, sans-serif;
+}
+
+.form-4 input[type=submit]:hover {
+    box-shadow: 
+        inset 0 1px black, 
+        inset 0 20px 30px black;
+}
+
+/* Fallback */
+.no-boxshadow .form-4 input[type=submit]:hover {
+    background: #594642;
+}
+.form-4 label {
+    display: none;
+    padding: 0 0 5px 2px;
+    cursor: pointer;
+}
+
+.form-4 label:hover ~ input {
+    border-color: #333;
+}
+
+.no-placeholder .form-4 label {
+    display: block;
+}
+
+</style>
+</head>
+<body>
+<style>
+body {
+    background-color:#D9FF1A;
+}
+</style>
+
+
+
+<form class="form-4" action="register" method="post"
+									role="form" style="display: block;">
+									<h2 style="margin-left:65px; font-family: italic, cursive; font-size: 70px; color:  #ffa500;">MartZone</h2>
+									<h4>Signup</h4>
+									<div class="form-group">
+										<input type="text" name="username" id="username" tabindex="1"
+											class="form-control" placeholder="username" value="">
+																				</div>
+									<div class="form-group">
+										<input type="email" name="email" id="email" tabindex="1"
+											class="form-control" placeholder="email" value="">
+											</div>
+									<div class="form-group">
+										<input type="password" name="password" id="password"
+											tabindex="2" class="form-control" placeholder="Password">
+											
+									</div>
+										
+											<div class="form-group">
+										<input type="number" name="contactnumber" id="contactnumber" tabindex="1"
+											class="form-control" placeholder="contact number" value="required">
+											</div>
+									
+									
+									
+									<div class="form-group">
+										<div class="row">
+											<div class="col-sm-6 col-sm-offset-3">
+												<input type="submit" name="register-submit" id="register-submit"
+													tabindex="4" class="form-control btn btn-register"
+													 value="register">
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-lg-12">
+												<div class="text-center">
+													<a href="signin" tabindex="5"
+														class="Already registered">Already registered?</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</form></body>
+</html>

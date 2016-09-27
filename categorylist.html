@@ -1,0 +1,20 @@
+<c:if test="${!empty categoryList}">
+		<table class="tg">
+			<tr>
+				<th>Category ID</th>
+				<th>Category Name</th>
+				<th>Category Description</th>
+				<th>Edit</th>
+				<th>Delete</th>
+			</tr>
+			<c:forEach items="${categoryList}" var="category">
+				<tr>
+					<td>${category.id}</td>
+					<td>${category.name}</td>
+					<td>${category.description}</td>
+					<td><a href="<c:url value='category/edit/${category.id}' />">Edit</a></td>
+					<td><a href="<c:url value='category/remove/${category.id}' />">Delete</a></td>
+				</tr>
+			</c:forEach>
+		</table>
+	</c:if>
